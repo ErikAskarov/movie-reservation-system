@@ -11,7 +11,7 @@ import (
 var DB *gorm.DB
 
 func InitDB(cfg models.Config) {
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s", cfg.Host, cfg.User, cfg.Password, cfg.DBName, cfg.Port, cfg.SSLMode)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s", cfg.Host, cfg.User, cfg.Password, cfg.DBName, cfg.Port)
 
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
@@ -22,7 +22,7 @@ func InitDB(cfg models.Config) {
 		panic(err)
 	}
 
-	fmt.Printf("db migrated")
+	fmt.Printf("db migrated\n")
 
 	DB = db
 }

@@ -1,14 +1,16 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"github.com/dgrijalva/jwt-go"
+	"gorm.io/gorm"
+)
 
 type Config struct {
-	Host     string
-	Port     string
-	User     string
-	Password string
-	DBName   string
-	SSLMode  string
+	Host     string `json:"host"`
+	Port     string `json:"port"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	DBName   string `json:"dbname"`
 }
 
 type User struct {
@@ -17,4 +19,9 @@ type User struct {
 	Email    string `gorm:"unique" json:"email"`
 	Password string `json:"password"`
 	Role     string `json:"role"`
+}
+
+type Claims struct {
+	Role string `json:"role"`
+	jwt.StandardClaims
 }
