@@ -91,13 +91,13 @@ func SignUp(c *gin.Context) {
 func Home(c *gin.Context) {
 	cookie, err := c.Cookie("token")
 	if err != nil {
-		c.JSON(401, gin.H{"error": "unauthorized"})
+		c.JSON(401, gin.H{"error": "unauthorized1"})
 		return
 	}
 
 	claims, err := helpers.ParseToken(cookie)
 	if err != nil {
-		c.JSON(401, gin.H{"error": "unauthorized"})
+		c.JSON(401, gin.H{"error": "unauthorized2"})
 		return
 	}
 

@@ -11,7 +11,7 @@ func isAuthorized() gin.HandlerFunc {
 		cookie, err := c.Cookie("token")
 
 		if err != nil {
-			c.JSON(401, gin.H{"error": "unauthorized"})
+			c.JSON(401, gin.H{"error": "unauthorized2"})
 			c.Abort()
 			return
 		}
@@ -19,7 +19,7 @@ func isAuthorized() gin.HandlerFunc {
 		claims, err := helpers.ParseToken(cookie)
 
 		if err != nil {
-			c.JSON(401, gin.H{"error": "unauthorized"})
+			c.JSON(401, gin.H{"error": "unauthorized1"})
 			c.Abort()
 			return
 		}
